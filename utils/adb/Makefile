@@ -1,13 +1,14 @@
 include $(TOPDIR)/rules.mk
+# Originally at https://gist.github.com/swiftgeek/05d22fd75329685a47fc
 #Based on adb package from AUR https://aur.archlinux.org/packages/adb/ , reused adbMakefile
 
 PKG_NAME:=adb
-PKG_VERSION:=android.4.4.2_r2
+PKG_VERSION:=android.5.0.2_r1
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://android.googlesource.com/platform/system/core
-PKG_SOURCE_VERSION:=e65b7ea8801145626504c724c28aedd0e5038a28
+PKG_SOURCE_VERSION:=6fe92d1a3fb17545d82d020a3c995f32e6b71f9d
 # PKG_SOURCE_SUBDIR specifies where repo is cloned
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_SOURCE_VERSION)
 PKG_SOURCE:=$(PKG_SOURCE_SUBDIR).tar.gz
@@ -20,6 +21,7 @@ ifeq ($(CONFIG_BIG_ENDIAN),y)
 TARGET_CFLAGS+= -DHAVE_BIG_ENDIAN=1
 beinfo: $(info *** Big endian detected, look for -DHAVE_BIG_ENDIAN=1 ***)
 endif
+TARGET_CFLAGS+= -D_GNU_SOURCE
 
 define Package/adb
 	SECTION:=utils
