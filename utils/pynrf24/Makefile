@@ -8,8 +8,8 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=pynrf24
-PKG_VERSION:=5aa1cc02d3f56863eb143a7105d76dc92fd25e8b
-PKG_RELEASE:=1
+PKG_VERSION:=b1f76ee2f6626b3fe55e057e19c9ff66b1c09232
+PKG_RELEASE:=2
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/xtompok/pynrf24.git
